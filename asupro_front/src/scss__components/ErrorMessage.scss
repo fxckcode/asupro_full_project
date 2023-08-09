@@ -1,0 +1,10 @@
+.error {
+    @apply border border-red-600 w-full p-2 flex gap-2 items-center;
+    background-color: rgba(255, 0, 0, 0.281);
+    & > .close__error {
+        @apply p-1 text-red-900 text-xl cursor-pointer flex items-center;
+    }
+    & > .error__message {
+        @apply flex items-center justify-center
+    }
+}

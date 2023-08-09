@@ -1,0 +1,15 @@
+.contain__notfound {
+    @apply w-full h-screen overflow-hidden flex justify-center items-center flex-col lg:flex-row;
+    & > .img__section > img {
+        @apply max-w-md lg:max-w-2xl
+    }
+    & > .content__section {
+        @apply max-w-2xl text-center;
+        & > h1 {
+            @apply font-bold text-9xl        
+        }
+        & > span {
+            @apply text-2xl
+        }
+    }
+}

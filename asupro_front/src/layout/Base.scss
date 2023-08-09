@@ -1,0 +1,5 @@
+@import url(../scss__components/ErrorMessage.scss);
+
+.contain {
+    @apply w-full h-screen flex flex-col items-center;
+}

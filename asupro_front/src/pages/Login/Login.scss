@@ -1,0 +1,33 @@
+.login__contain {
+    @apply w-full h-screen flex justify-center items-center;
+    & > .card__login {
+        @apply py-5 px-10 shadow-2xl rounded flex flex-col gap-2;
+        & > h2 {
+            @apply text-2xl p-5 font-bold text-slate-900;
+        }
+        & > form {
+            @apply flex flex-col gap-3;
+            & > .row {
+                @apply flex flex-col gap-2;
+                & > input {
+                    border: none;
+                    outline: none;
+                    @apply bg-slate-100 p-2;
+
+                    &:focus {
+                        border-bottom: 1px solid #4d4d4d;
+                    }
+                }
+            }
+            & > .row:nth-child(2) {
+                @apply mb-5;
+            }
+            & > button {
+                @apply p-2 text-white bg-green-800 rounded hover:bg-green-900 transition-all;  
+            }
+        }
+        & > .btn__login {
+            @apply p-2 text-white bg-green-800 rounded text-center  hover:bg-green-900 transition-all;
+        }
+    }
+}
