@@ -3,9 +3,13 @@ import Base from '../../layout/Base';
 import './Login.scss';
 import { useState } from 'react';
 import axiosClient from '../../axios-client';
+import { Input} from '@nextui-org/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 function Login() {
   const [errorMessage, setErrorMessage] = useState(false);
   const navigate = useNavigate();
+  const [isVisisble, setIsVisible] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -30,6 +34,7 @@ function Login() {
     e.preventDefault();
     setErrorMessage(false)
   }
+  const toggleVisibility = () => setIsVisible(!isVisisble)
   return (
     <Base title="Asupro | Login">
         <div className='login__contain'>
@@ -48,11 +53,21 @@ function Login() {
                     )}
                     <div className="row">
                         <label htmlFor="email">Correo:</label>
-                        <input type="email" name='email' id='email' placeholder='Correo Electrónico' required/>
+                        <Input type='email' name='email' placeholder='Correo Electronico'  required className='max-w-xs p-3 bg-gray-100 rounded'/>
                     </div>
                     <div className="row">
                         <label htmlFor="password">Contraseña:</label>
-                        <input type="password" name='password' id='password' placeholder='Contraseña' required/>
+                        <Input variant='bordered' placeholder='Ingrese su contraseña' name='password' endContent={
+                            <button className='focus:outline-none' type='button' onClick={toggleVisibility} >
+                                {isVisisble ? (
+                                    <FontAwesomeIcon icon={faEyeSlash} />
+                                ) : (
+                                    <FontAwesomeIcon icon={faEye} />
+                                )
+                                
+                                }
+                            </button>
+                        } type={isVisisble ? "text" : "password"} className='max-w-xs p-3 bg-gray-100 rounded' required/>
                     </div>
                     <button type='submit' className='btn__login'>Iniciar Sesión</button>
                 </form>
